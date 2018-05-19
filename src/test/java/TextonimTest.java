@@ -6,17 +6,13 @@ import java.util.Map;
 
 public class TextonimTest {
 
-
-    static Textonim textonim = new Textonim();
+    private static Textonim textonim = new Textonim();
 
     @Test
     public void shouldCheckMethodReturnTrueForLineAlaAndPattern252() throws Exception {
         //given
-        textonim.fillMap();
-
         //when
         boolean value = textonim.check("ala", "252");
-
         //then
         Assertions.assertThat(value).isTrue();
     }
@@ -24,7 +20,6 @@ public class TextonimTest {
     @Test
     public void shouldCheckMethodReturnFalseForLineAlaAndPattern262() throws Exception {
         //given
-        textonim.fillMap();
         //when
         boolean value = textonim.check("ala", "262");
         //then
@@ -34,7 +29,6 @@ public class TextonimTest {
     @Test
     public void shouldCheckMethodReturnFalseForLineAlaAndPattern2522() throws Exception {
         //given
-        textonim.fillMap();
         //when
         boolean value = textonim.check("ala", "2522");
         //then
@@ -44,7 +38,6 @@ public class TextonimTest {
     @Test
     public void shouldCheckMethodReturnFalseForLineLegnacaAndPattern534622() throws Exception {
         //given
-        textonim.fillMap();
         //when
         boolean value = textonim.check("lęgnąca", "5346222");
         //then
@@ -54,12 +47,11 @@ public class TextonimTest {
     @Test
     public void shouldFillMapHasSize69() throws Exception {
         //given
-        textonim.fillMap();
         //when
-        Map<String, String> map = textonim.getMAP();
+        Map<String, String> map = textonim.getmap();
         int mapSize = map.size();
         //then
-        Assertions.assertThat(mapSize).isEqualTo(69);
+        Assertions.assertThat(mapSize).isEqualTo(70);
     }
 
     @Test
@@ -67,7 +59,6 @@ public class TextonimTest {
         //given
         Textonim textonim = new Textonim();
         List<String> readFileList = textonim.getResultList();
-        textonim.fillMap();
         //when
         textonim.readFile("534625297");
         int readFileListSize = readFileList.size();
@@ -80,7 +71,6 @@ public class TextonimTest {
         //given
         Textonim textonim = new Textonim();
         List<String> readFileList = textonim.getResultList();
-        textonim.fillMap();
         //when
         textonim.readFile("264");
         int readFileListSize = readFileList.size();
